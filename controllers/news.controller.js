@@ -28,6 +28,7 @@ router.get("/topstories", async(req, res)=>{
 })
 
 router.get("/newstories", async(req, res)=>{
+    
     try{
         const response = await axios.get(`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`)
         const storyIds = response.data
