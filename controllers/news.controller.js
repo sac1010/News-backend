@@ -6,7 +6,7 @@ router.get("/topstories", async(req, res)=>{
     try{
         const response = await axios.get(`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`)
         const storyIds = response.data
-        const size = 6
+        const size = 8
         const pages = Math.ceil(storyIds.length/size) 
         const page = req.query.page || 1
         const pageIds = storyIds.splice((page-1)*size, size)
@@ -32,7 +32,7 @@ router.get("/newstories", async(req, res)=>{
     try{
         const response = await axios.get(`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`)
         const storyIds = response.data
-        const size = 6
+        const size = 8
         const pages = Math.ceil(storyIds.length/size) 
         const page = req.query.page || 1
         const pageIds = storyIds.splice((page-1)*size, size)
@@ -57,7 +57,7 @@ router.get("/beststories", async(req, res)=>{
     try{
         const response = await axios.get(`https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty`)
         const storyIds = response.data
-        const size = 6
+        const size = 8
         const pages = Math.ceil(storyIds.length/size) 
         const page = req.query.page || 1
         const pageIds = storyIds.splice((page-1)*size, size)
