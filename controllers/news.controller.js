@@ -47,7 +47,7 @@ router.get("/newstories", async(req, res)=>{
                 const stories  = results.map((res)=>res.data) 
         res.status(200).send({stories, pages})
     }catch(err){
-        res.send(err)
+        res.status(500).send(err)
     }
 
 
