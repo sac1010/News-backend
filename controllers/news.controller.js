@@ -1,6 +1,7 @@
 const express = require("express")
 const axios = require("axios")
 const router = express.Router()
+const urlMetadata = require('url-metadata')
 
 router.get("/topstories", async(req, res)=>{
     try{
@@ -77,6 +78,16 @@ router.get("/beststories", async(req, res)=>{
 
 
 })
+
+router.post("/metadata", async(req, res)=>{
+    try{
+        const url = req.body.url
+         const metaData = await urlMetadata(url) 
+         res.send(metaData)    
+    }catch(e){
+        res.status(500).send(e)
+    }
+}) 
  
 
 module.exports = router
